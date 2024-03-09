@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: linear-gradient(to right top, #040096, #0054d0, #008be6, #00bce5, #12ebdf);
+    height: 100vh; /* ทำให้พื้นหลังเต็มหน้าจอ */
+    background-size: cover; /* ทำให้ภาพเต็มขนาดเต็มหน้าจอ */
+    background-position: center; /* จัดตำแหน่งของภาพพื้นหลังตรงกลาง */
+}
+
+
+header {
+    background-color: #ffffff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    -webkit-box-shadow:0px 0px 42px 3px #77ebff ;
+-moz-box-shadow:0px 0px 42px 3px #001057 ;
+box-shadow:0px 0px 42px 3px #000a79 ;
+}
+
+.logo h1 {
+    margin: 0;
+    color: #1e1e1e;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #1e1e1e;
+    text-decoration: none;
+}
+ul li:hover {
+    text-decoration: underline; /* เพิ่มเส้นใต้เมื่อ hover */
+}
+
+
