@@ -34,7 +34,7 @@
     </div>
     <div class="menu">
         <ul>
-            <li><a href="#"><i class="fa-solid fa-house"></i>Login</a></li>
+            <li><a href="#"><i class="fa-solid fa-house"></i>profile</a></li>
             <li><a href="#"><i class="fa-solid fa-envelope"></i>Contact</a></li>
         </ul>
     </div>
@@ -48,7 +48,38 @@
 <?php
     include './car.php';
 ?>
+<!-- Logout confirmation modal -->
+<div class="modal" id="logout-modal">
+    <div class="modal-content">
+        <h2>คุณต้องการออกจากระบบหรือไม่?</h2><br>
+        <div class="dd">
+        <button id="confirm-logout">ยืนยัน</button>
+        <button id="cancel-logout">ยกเลิก</button>
+        </div>
+    </div>
+</div>
 
+<script>
+
+    var logoutButton = document.getElementById("logout-btn");
+    var modal = document.getElementById("logout-modal");
+    var confirmButton = document.getElementById("confirm-logout");
+    var cancelButton = document.getElementById("cancel-logout");
+    logoutButton.onclick = function() {
+        modal.style.display = "block";
+    }
+    confirmButton.onclick = function() {
+        window.location.href = "index.php";
+    }
+    cancelButton.onclick = function() {
+        modal.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
 
 </body>
 </html>

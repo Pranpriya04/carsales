@@ -10,6 +10,7 @@ body {
 }
 
 .header {
+    top: 0;
     background-color: #131212;
     padding: 20px;
     display: flex;
@@ -29,6 +30,9 @@ body {
     color: white;
     font-size: 25px;
     font-weight: bolder;
+}
+.logo a{
+    text-decoration: none;
 }
 .navbar{
     background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(229,255,232,1) 0%, rgba(255,255,255,1) 0%, rgba(255,254,219,1) 78%, rgba(255,219,249,1) 100%);
@@ -115,9 +119,164 @@ ul li a i{
     font-size: 30px;
 }
 .car{
-    border: 2px solid rgb(38, 48, 137);
-    height: 800px;
-    background-color: #131212;
-    width: 300px;
+    border: 2px solid rgb(255, 4, 4);
+    height: 400px;
+    width: 500px;
     
+}
+.container {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.box:hover {
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.589); /* เงาสีฟ้าเมื่อ hover */
+}
+
+.box {
+    
+    box-shadow: -1px -1px 10px 5px rgba(0, 0, 0, 0.17);
+    border-radius: 20px;
+    width: 600px;
+    height: 450px;
+    background-color: #ffffff;
+    margin: 10px;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+.im img{
+    border-top-right-radius: 20px;
+    border-top-left-radius:20px;
+    height: 200px;
+    width: 600px;
+    object-fit: cover;
+}
+.text{
+    margin-top: 15px;
+    height: 220px;
+    width: 600px;
+}
+.price {
+    padding-left: 40px;
+    padding-top: 5px;
+    
+}
+.price h3{
+    font-weight: bolder;
+    color: #ff4a32;
+}
+.text h3, .text p {
+    display: inline;
+}
+p{
+    margin-left: 10px;
+    color: #828080;
+    font-size: 15px;
+}
+.t h4{
+    font-weight: bolder;
+    color: #252424;
+    padding-left: 40px;
+    font-size: 22px;
+    margin-top: 10px;
+}
+.t h6{
+    font-weight: bolder;
+    color: #252424;
+    padding-left: 40px;
+    margin-top: 3px;
+}
+.dropbtn{
+    color: white;
+    font-size: 20px;
+    font-weight: bolder;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+    padding-left: 40px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #000000;
+    color: white;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    color: #ff0000;
+    text-decoration: underline;
+}
+.dp{
+    width: 830px;
+    margin-bottom: 5px;
+}
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5); /* สีดำโปร่งใส */
+    z-index: 9999; /* ให้แสดงบนเนื้อหา */
+    display: none; /* ซ่อนโมดัลเริ่มต้น */
+}
+
+.modal-content {
+    height: 150px;
+    width: 300px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    position: fixed;
+    top: 40%;
+    left: 40%;
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+    font-size: 18px;
+    
+}
+.modal-content button {
+    width: 100px; /* กำหนดความกว้าง */
+    background-color: #28a745; /* สีเขียวสำหรับปุ่มยืนยัน */
+    color: #fff;
+    border: none;
+    display: inline-block;
+    margin: 0 10px; /* ระยะห่างระหว่างปุ่ม */
+    cursor: pointer;
+    border-radius: 5px;
+    height: 30px;
+    
+}
+
+.modal-content button#cancel-logout {
+    background-color: #dc3545; /* สีแดงสำหรับปุ่มยกเลิก */
+}
+.dd{
+    
+    display: inline-block;
 }

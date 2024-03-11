@@ -1,0 +1,262 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    /* background-image: linear-gradient(to right top, #040096, #0054d0, #008be6, #00bce5, #12ebdf);
+    height: 100vh;
+    background-size: cover; 
+    background-position: center;  */
+    
+
+}
+
+.header {
+    box-shadow: -4px 8px 23px 0px rgba(0,0,0,0.75);
+-webkit-box-shadow: -4px 8px 23px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: -4px 8px 23px 0px rgba(0,0,0,0.75);
+    top: 0;
+    background-color: #000000;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    
+}
+.logo{
+    /* border: 1px solid red; */
+    width: 300px;
+    height: 80px;
+    padding: 20px 10px 10px 50px;
+
+}
+.logo #logo{
+    color: white;
+    font-size: 25px;
+    font-weight: bolder;
+    text-decoration: none;
+}
+.logo a{
+    text-decoration: none;
+}
+.navbar{
+    background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(229,255,232,1) 0%, rgba(255,255,255,1) 0%, rgba(255,254,219,1) 78%, rgba(255,219,249,1) 100%);
+    height: 90px;
+    overflow: hidden;
+    box-shadow: -2px 10px 36px -13px rgba(99,99,99,1);
+    padding: 5px 80px 5px 80px;
+}
+ul{
+    /* border: 1px solid red; */
+    display: flex;
+    
+}
+
+ul li a:hover{
+    color: #ff0000;
+    text-decoration: underline;
+}
+ul li a{
+    justify-content: space-around;
+    padding: 30px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+
+}
+ul li a i{
+    padding: 5px;
+}
+
+.sidebar {
+    margin-top: 80px;
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgb(0,0,0);
+    background: rgb(0,0,0);
+    background: -moz-linear-gradient(157deg, rgba(0,0,0,1) 9%, rgba(253,29,29,1) 59%, rgba(142,255,240,1) 100%);
+    background: -webkit-linear-gradient(157deg, rgba(0,0,0,1) 9%, rgba(253,29,29,1) 59%, rgba(142,255,240,1) 100%);
+    background: linear-gradient(157deg, rgba(0,0,0,1) 9%, rgba(253,29,29,1) 59%, rgba(142,255,240,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#8efff0",GradientType=1);
+    padding-top: 20px;
+    
+}
+
+.sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: block;
+    margin-left: 20px;
+    font-weight: bolder;
+}
+
+.sidebar a:hover {
+    background-color: #ffffff;
+    color: black;
+}
+
+.content {
+    margin-left: 250px;
+    padding: 20px;
+}
+
+
+caption{
+    font-size: 18px;
+    color: #000;
+}
+.edit-button {
+    padding-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 16px;
+    border-radius: 7px;
+    width: 100px;
+    height: 30px;
+    font-weight: bold;
+    transition: 0.3s;
+    background-color: #ffc107;
+  }
+  
+  .edit-button:hover {
+    opacity: .7;
+  }
+  .delete-button {
+    margin-left: 10px;
+    padding-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 16px;
+    border-radius: 7px;
+    width: 100px;
+    height: 30px;
+    font-weight: bold;
+    transition: 0.3s;
+    background-color: #ff0707;
+  }
+  
+  .delete-button:hover {
+    opacity: .7;
+  }
+  .butt a{
+    display: inline-block;
+  }
+.add{
+    margin-left: 350px;
+    margin-top: 30px;
+    padding-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 16px;
+    border-radius: 7px;
+    width: 120px;
+    height: 30px;
+    font-weight: bold;
+    transition: 0.3s;
+    background-color: #4bcd00;
+  }
+  
+  .add{
+    opacity: .7;
+  }
+  .car-info {
+    margin-top: 40px;
+    margin-left: 350px;
+    display: flex;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 850px;
+    border-radius: 20px;
+    box-shadow: 1px 2px 18px 0px rgba(0,0,0,0.75);
+-webkit-box-shadow: 1px 2px 18px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 1px 2px 18px 0px rgba(0,0,0,0.75);
+}
+
+.car-image {
+    margin-right: 20px;
+}
+
+.car-image img {
+    width: 150px;
+    height: auto;
+}
+
+.car-details {
+    flex: 1;
+}
+
+.car-details p {
+    margin: 5px 0;
+}
+
+.buttons {
+    display:inline-flex;
+    margin-top: 10px;
+    
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5); /* สีดำโปร่งใส */
+    z-index: 9999; /* ให้แสดงบนเนื้อหา */
+    display: none; /* ซ่อนโมดัลเริ่มต้น */
+}
+
+.modal-content {
+    height: 150px;
+    width: 300px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    position: fixed;
+    top: 40%;
+    left: 40%;
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+    font-size: 18px;
+    
+}
+.modal-content button {
+    width: 100px; /* กำหนดความกว้าง */
+    background-color: #28a745; /* สีเขียวสำหรับปุ่มยืนยัน */
+    color: #fff;
+    border: none;
+    display: inline-block;
+    margin: 0 10px; /* ระยะห่างระหว่างปุ่ม */
+    cursor: pointer;
+    border-radius: 5px;
+    height: 30px;
+    
+}
+
+.modal-content button#cancel-logout {
+    background-color: #dc3545; /* สีแดงสำหรับปุ่มยกเลิก */
+}
+.dd{
+    
+    display: inline-block;
+}
