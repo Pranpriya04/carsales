@@ -12,10 +12,12 @@
 
 <body>
 
-
+    <?php
+    include("./layouts/sidebar.php")
+    ?>
 
     <center>
-        <div class="personal-info">
+        <div class=" personal-info">
             <div class="user-icon">
                 <img src="./pictures/admin.jpg" alt="">
             </div>

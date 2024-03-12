@@ -34,7 +34,6 @@ session_start();
             include("home_admin.php");
         } else {
             include "./layouts/header.php";
-            include("car.php");
         ?>
             <div class="slider">
                 <img src="./pictures/4.jpg" alt="Image 1">
@@ -43,7 +42,9 @@ session_start();
                 <div class="con">If "GOOD CAR" is your choice so It's actully "US"</div>
             </div>
 
-    <?php       }
+
+    <?php include("car.php");
+        }
     } ?>
 
 
