@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,102 +9,90 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style_admin2.css">
 </head>
-<body>  
-    
-<div class="header">
-    <div class="logo">
-    <a href="home_admin.php"><h1 id="logo">FDPG CARS</h1></a>
-    </div>
-    <div class="menu">
-        <ul>
-            <li><a href="#"><i class="fa-solid fa-house"></i>admin</a></li>
-                </ul>
-    </div>
-</div>
-<div class="sidebar">
-  <a href="type_admin.php">ข้อมูลประเภท</a>
-  <a href="brand_admin.php">ข้อมูลแบรนด์รถ</a>
-  <a href="cars_admin.php">ข้อมูลรถ</a>
-  <a href="sales_admin.php">ข้อมูลการขาย</a>
-  <a href="member_admin.php">ข้อมูลสมาชิก</a><br><br>
-  <a href="#" id="logout-btn">Logout</a>
-</div>
-<center>
-<div class="personal-info">
-    <div class="user-icon">
-        <img src="./pictures/admin.jpg" alt="">
-    </div>
-    <div class="info">
-        <p>ชื่อผู้ใช้: John Doe</p>
-        <p>Email: johndoe@example.com</p>
-        <p>เบอร์โทร: 012-345-6789</p>
-    </div>
-    <a href="#" class="edit-button" onclick="editInfo()">แก้ไข</a>
-</div>
-<div class="edit-info" style="display: none;">
-    <div class="info2">
-    <form action="edit_info.php" method="POST" class="edit-form">
-    <div class="form-group">
-        <label for="username">ชื่อผู้ใช้:</label>
-        <input type="text" id="username" name="username" value="John Doe">
-    </div>
-    <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" value="johndoe@example.com">
-    </div>
-    <div class="form-group">
-        <label for="tel">เบอร์โทร:</label>
-        <input type="tel" id="tel" name="tel" value="012-345-6789">
-    </div>
-    <button type="submit" class="btn-submit">บันทึก</button>
-</form>
 
-    </div>
-</div>
-<script>
-    function editInfo() {
-        var personalInfo = document.querySelector('.personal-info');
-        var editInfo = document.querySelector('.edit-info');
+<body>
 
-        personalInfo.style.display = 'none';
-        editInfo.style.display = 'block';
-    }
-</script>
-</div></center>
-<!-- Logout confirmation modal -->
-<div class="modal" id="logout-modal">
-    <div class="modal-content">
-        <h2>คุณต้องการออกจากระบบหรือไม่?</h2><br>
-        <div class="dd">
-        <button id="confirm-logout">ยืนยัน</button>
-        <button id="cancel-logout">ยกเลิก</button>
+    <?php
+    include("./layouts/sidebar.php")
+    ?>
+
+    <center>
+        <div class=" personal-info">
+            <div class="user-icon">
+                <img src="./pictures/admin.jpg" alt="">
+            </div>
+            <div class="info">
+                <p>ชื่อผู้ใช้: John Doe</p>
+                <p>Email: johndoe@example.com</p>
+                <p>เบอร์โทร: 012-345-6789</p>
+            </div>
+            <a href="#" class="edit-button" onclick="editInfo()">แก้ไข</a>
+        </div>
+        <div class="edit-info" style="display: none;">
+            <div class="info2">
+                <form action="edit_info.php" method="POST" class="edit-form">
+                    <div class="form-group">
+                        <label for="username">ชื่อผู้ใช้:</label>
+                        <input type="text" id="username" name="username" value="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" value="johndoe@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="tel">เบอร์โทร:</label>
+                        <input type="tel" id="tel" name="tel" value="012-345-6789">
+                    </div>
+                    <button type="submit" class="btn-submit">บันทึก</button>
+                </form>
+
+            </div>
+        </div>
+        <script>
+            function editInfo() {
+                var personalInfo = document.querySelector('.personal-info');
+                var editInfo = document.querySelector('.edit-info');
+
+                personalInfo.style.display = 'none';
+                editInfo.style.display = 'block';
+            }
+        </script>
+        </div>
+    </center>
+    <!-- Logout confirmation modal -->
+    <div class="modal" id="logout-modal">
+        <div class="modal-content">
+            <h2>คุณต้องการออกจากระบบหรือไม่?</h2><br>
+            <div class="dd">
+                <button id="confirm-logout">ยืนยัน</button>
+                <button id="cancel-logout">ยกเลิก</button>
+            </div>
         </div>
     </div>
-</div>
 
 
-<script>
-
-    var logoutButton = document.getElementById("logout-btn");
-    var modal = document.getElementById("logout-modal");
-    var confirmButton = document.getElementById("confirm-logout");
-    var cancelButton = document.getElementById("cancel-logout");
-    logoutButton.onclick = function() {
-        modal.style.display = "block";
-    }
-    confirmButton.onclick = function() {
-        window.location.href = "logout.php";
-    }
-    cancelButton.onclick = function() {
-        modal.style.display = "none";
-    }
-    window.onclick = function(event) {
-        if (event.target == modal) {
+    <script>
+        var logoutButton = document.getElementById("logout-btn");
+        var modal = document.getElementById("logout-modal");
+        var confirmButton = document.getElementById("confirm-logout");
+        var cancelButton = document.getElementById("cancel-logout");
+        logoutButton.onclick = function() {
+            modal.style.display = "block";
+        }
+        confirmButton.onclick = function() {
+            window.location.href = "logout.php";
+        }
+        cancelButton.onclick = function() {
             modal.style.display = "none";
         }
-    }
-</script>
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 
 
 </body>
+
 </html>

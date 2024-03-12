@@ -128,13 +128,13 @@
 
     <div class="wrapper" id="forgotFormContent">
 
-        <form action="actions/ac_login.php?ac=forget">
+        <form id="forget" action="actions/ac_login.php?ac=forget" onsubmit="return forget()">
 
             <h1>Reset your password</h1>
 
             <div class="input-box">
 
-                <input type="email" placeholder="Email" required>
+                <input type="email" name="email" placeholder="Email" required>
 
             </div>
 
@@ -155,6 +155,38 @@
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
+        function forget() {
+            let url = $("#forget").attr("action")
+            let data = $('#forget').serialize();
+            $.ajax({
+                url: url, //the page containing php script
+                type: "post", //request type,
+                data: data,
+                success: function(res) {
+                    let {
+                        status,
+                        message
+                    } = JSON.parse(res)
+
+
+                    if (status) {
+                        window.location.replace("newPassword.php?usersID=" + message)
+                    } else {
+                        Swal.fire({
+                            title: message,
+                            icon: "error",
+                            showConfirmButton: false,
+                            timer: 1000,
+                        })
+
+                    }
+
+                }
+            });
+            return false
+        }
+
+
         function login() {
             let url = $("#login").attr("action")
             let data = $('#login').serialize();

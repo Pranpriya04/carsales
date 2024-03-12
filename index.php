@@ -15,29 +15,37 @@ session_start();
 
 <body>
 
-    <?php
-    include "./layouts/header.php";
-    ?>
 
-    <div class="slider">
-        <img src="./pictures/4.jpg" alt="Image 1">
-        <img src="./pictures/2.jpg" alt="Image 2">
-        <img src="./pictures/3.jpg" alt="Image 3">
-        <div class="con">If "GOOD CAR" is your choice so It's actully "US"</div>
-    </div>
 
     <?php
     if (isset($_REQUEST['p'])) {
-        include($_REQUEST['p'] . ".php");
-    } else {
+        include "./layouts/header.php";
+        include($_REQUEST['p'] . ".php"); ?>
+
+        <div class="slider">
+            <img src="./pictures/4.jpg" alt="Image 1">
+            <img src="./pictures/2.jpg" alt="Image 2">
+            <img src="./pictures/3.jpg" alt="Image 3">
+            <div class="con">If "GOOD CAR" is your choice so It's actully "US"</div>
+        </div>
+        <?php } else {
         if (isset($_SESSION['status']) and $_SESSION['status'] == 1) {
+            include "./layouts/header_admin.php";
             include("home_admin.php");
         } else {
-            include("car.php");
-        }
-    }
+            include "./layouts/header.php";
+        ?>
+            <div class="slider">
+                <img src="./pictures/4.jpg" alt="Image 1">
+                <img src="./pictures/2.jpg" alt="Image 2">
+                <img src="./pictures/3.jpg" alt="Image 3">
+                <div class="con">If "GOOD CAR" is your choice so It's actully "US"</div>
+            </div>
 
-    ?>
+
+    <?php include("car.php");
+        }
+    } ?>
 
 
 

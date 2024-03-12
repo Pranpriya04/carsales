@@ -48,5 +48,32 @@ if (isset($_REQUEST['ac'])) {
 
             echo json_encode($data);
             break;
+        case "forget":
+            $sql = $conn->query("SELECT * FROM users WHERE email = '" . $_REQUEST['email'] . "'");
+            $num = $sql->num_rows;
+            if ($num > 0) {
+                $data = array("status" => true, "message" => "1");
+            } else {
+                $data = array("status" => false, "message" => "ไม่พบ Email ในระบบ!");
+            }
+
+            echo json_encode($data);
+            break;
+
+        case "newPass":
+            if ($_REQUEST['password'] != $_REQUEST['newPassword']) {
+                $data = array("status" => false, "message" => "รหัสผ่านไม่ตรงกัน!");
+            } else {
+                $sql = $conn->query("UPDATE users SET password = '" . $_REQUEST['newPassword'] . "' WHERE usersID = '" . $_REQUEST['usersID'] . "'");
+
+                if ($sql) {
+                    $data = array("status" => true, "message" => "แก้ไขรหัสผ่านสำเร็จ!");
+                } else {
+                    $data = array("status" => false, "message" => "เกิดข้อผิดพลาดโปรลองอีกครั้ง!");
+                }
+            }
+
+            echo json_encode($data);
+            break;
     }
 }
