@@ -30,27 +30,99 @@
   <center>
   <button class="add" id="add-car"><a href="incars_admin.php">เพิ่มข้อมูลรถ</a></button></div>
   </center>
-  <div class="car-info">
-    <div class="car-image">
-        <img src="./pictures/4.jpg" alt="Car Image">
-    </div>
-    <div class="car-details">
-        <p><strong>รหัสรถ:</strong> 123456</p>
-        <p><strong>ชื่อรถ:</strong> Toyota Camry</p>
-        <p><strong>ชื่อแบรนด์:</strong> Toyota</p>
-        <p><strong>ประเภทรถ:</strong> Sedan</p>
-        <p><strong>ปีผลิต:</strong> 2022</p>
-        <p><strong>สีรถ:</strong> Black</p>
-        <p><strong>ระยะทาง:</strong> 50,000 กิโลเมตร</p>
-        <p><strong>ราคา:</strong> 800,000 บาท</p>
-        <p><strong>รายละเอียดเพิ่มเติม:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        <p><strong>สถานะขาย:</strong> ยังไม่ขาย</p>
-        <div class="buttons">
-            <button class="edit-button"><a href="editcars_admin.php">แก้ไข</a></button>
-            <button class="delete-button">ลบ</button>
-        </div>
-    </div>
-</div>
+  <?php
+// เชื่อมต่อฐานข้อมูล
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "carshop";
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// เช็คการเชื่อมต่อ
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// คิวรี่ข้อมูลจากตาราง cars และ status
+$sql = "SELECT car.*, status.statusName 
+        FROM car 
+        INNER JOIN status ON car.statusID = status.statusID";
+$result = $conn->query($sql);
+
+// ตรวจสอบว่ามีข้อมูลหรือไม่
+if ($result->num_rows > 0) {
+    // วนลูปแสดงข้อมูลในตาราง
+    while($row = $result->fetch_assoc()) {
+        echo "<div class='car-info'>";
+        echo "<div class='car-image'>";
+        echo "<img src='./pictures/" . $row["picture"] . "' alt='Car Image'>";
+        echo "</div>";
+        echo "<div class='car-details'>";
+        echo "<p><strong>รหัสรถ:</strong> " . $row["carID"] . "</p>";
+        echo "<p><strong>ชื่อรถ:</strong> " . $row["carName"] . "</p>";
+        // คิวรี่ข้อมูลจากตาราง brand เพื่อหาชื่อแบรนด์
+        $brandID = $row["brandID"];
+        $brandSql = "SELECT brandName FROM brand WHERE brandID = '$brandID'";
+        $brandResult = $conn->query($brandSql);
+        if ($brandResult->num_rows > 0) {
+            $brandRow = $brandResult->fetch_assoc();
+            echo "<p><strong>ชื่อแบรนด์:</strong> " . $brandRow["brandName"] . "</p>";
+        }
+        // คิวรี่ข้อมูลจากตาราง typecar เพื่อหาชื่อประเภทรถ
+        $typeCarID = $row["typeCarID"];
+        $typeCarSql = "SELECT typeCarName FROM typecar WHERE typeCarID = '$typeCarID'";
+        $typeCarResult = $conn->query($typeCarSql);
+        if ($typeCarResult->num_rows > 0) {
+            $typeCarRow = $typeCarResult->fetch_assoc();
+            echo "<p><strong>ประเภทรถ:</strong> " . $typeCarRow["typeCarName"] . "</p>";
+        }
+        echo "<p><strong>ปีผลิต:</strong> " . $row["produceYear"] . "</p>";
+        echo "<p><strong>สีรถ:</strong> " . $row["color"] . "</p>";
+        echo "<p><strong>ระยะทาง:</strong> " . number_format($row["distance"]) . " กิโลเมตร</p>";
+        echo "<p><strong>ราคา:</strong> " . number_format($row["price"]) . " บาท</p>";
+        echo "<p><strong>รายละเอียดเพิ่มเติม:</strong> " . $row["moreInfo"] . "</p>";
+        echo "<p><strong>สถานะขาย:</strong> " . $row["statusName"] . "</p>";
+        echo "<div class='buttons'>";
+        echo "<button class='edit-button'><a href='editcars_admin.php'>แก้ไข</a></button>";
+        echo "<button class='delete-button'>ลบ</button>";
+        echo "</div>";
+        echo "</div>";
+        echo "</div>";
+    }
+} else {
+    echo "0 results";
+}
+$conn->close();
+?>
+<script>
+    // รับข้อมูลแบบ JSON จากฟอร์มแก้ไขข้อมูลรถ
+    function editCar() {
+        var form = document.getElementById("edit-car-form");
+        var formData = new FormData(form);
+
+        // ส่งคำขอแก้ไขข้อมูลรถไปยังไฟล์ PHP ด้วย AJAX
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                // เมื่อได้รับการตอบสนองจากไฟล์ PHP
+                alert("การแก้ไขข้อมูลรถสำเร็จ");
+                // สามารถเพิ่มการปรับปรุงหน้าเว็บที่นี่ตามต้องการ
+            }
+        };
+        xhr.open("POST", "update_car.php", true);
+        xhr.send(formData);
+    }
+
+    // เรียกใช้ฟังก์ชัน editCar เมื่อกดปุ่ม "เเก้ไขข้อมูล"
+    var editButton = document.getElementById("edit-car-button");
+    editButton.addEventListener("click", function(event) {
+        event.preventDefault(); // ป้องกันการโหลดหน้าเว็บใหม่
+        editCar(); // เรียกใช้ฟังก์ชัน editCar
+    });
+</script>
+
+
+
 
 <!-- Logout confirmation modal -->
 <div class="modal" id="logout-modal">
