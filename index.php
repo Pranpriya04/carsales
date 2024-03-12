@@ -46,6 +46,26 @@ session_start();
 
 
 
+    <script>
+        var logoutButton = document.getElementById("logout-btn");
+        var modal = document.getElementById("logout-modal");
+        var confirmButton = document.getElementById("confirm-logout");
+        var cancelButton = document.getElementById("cancel-logout");
+        logoutButton.onclick = function() {
+            modal.style.display = "block";
+        }
+        confirmButton.onclick = function() {
+            window.location.href = "logout.php";
+        }
+        cancelButton.onclick = function() {
+            modal.style.display = "none";
+        }
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 </body>
 
 </html>

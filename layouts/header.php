@@ -28,6 +28,7 @@
             if (isset($_SESSION['status'])) {
             ?>
                 <li><a href="logout.php"><i class="fa-solid fa-house"></i>Logout</a></li>
+                <li><a href="?p=history"><i class="fa-solid fa-history"></i>history</a></li>
             <?php } else { ?>
                 <li><a href="login.php"><i class="fa-solid fa-house"></i>Login</a></li>
             <?php } ?>

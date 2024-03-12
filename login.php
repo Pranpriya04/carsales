@@ -4,7 +4,7 @@
 
 <head>
 
-    <title>Login and Registration Form</title>
+    <title>carShop</title>
 
     <link rel="stylesheet" href="./style_login.css">
 

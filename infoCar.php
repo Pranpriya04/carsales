@@ -233,14 +233,6 @@ WHERE car.carID = '" . $_REQUEST['carID'] . "'
                 <p><strong>ป้ายทะเบียน:</strong> <?php echo $car->vehicleID; ?></p>
                 <p><strong>ปีที่ผลิต:</strong> <?php echo $car->produceYear; ?></p>
                 <p><strong>รายละเอียดรถ:</strong> <?php echo $car->moreInfo; ?></p>
-                <?php if (isset($_SESSION['usersID'])) { ?>
-                    <button class="custom-btn btn-3" onclick="goBuy('<?php echo $car->carID; ?>')"><span>ซื้อแบบผ่อน</span></button>
-                    <button class="custom-btn btn-3" onclick="payment('<?php echo $car->carID; ?>')"><span>ซื้อเงินสด</span></button>
-                <?php } else { ?>
-                    <button class="custom-btn btn-3" onclick="goLogin()"><span>ซื้อแบบผ่อน</span></button>
-                    <button class="custom-btn btn-3" onclick="goLogin()"><span>ซื้อเงินสด</span></button>
-                <?php } ?>
-                <button onclick="goBack()" class="custom-btn btn-5"><span>กลับ</span></button>
             </div>
 
         </div>

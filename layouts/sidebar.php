@@ -6,3 +6,13 @@
   <a href="member_admin.php">ข้อมูลสมาชิก</a><br><br>
   <a href="#" id="logout-btn">Logout</a>
 </div>
+<!-- Logout confirmation modal -->
+<div class="modal" id="logout-modal">
+  <div class="modal-content">
+    <h2>คุณต้องการออกจากระบบหรือไม่?</h2><br>
+    <div class="dd">
+      <button id="confirm-logout">ยืนยัน</button>
+      <button id="cancel-logout">ยกเลิก</button>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +14,7 @@
             margin: 0;
             padding: 0;
         }
+
         .container {
             max-width: 600px;
             margin: 50px auto;
@@ -21,13 +23,16 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
         h2 {
             margin-top: 0;
             color: #333;
         }
+
         label {
             font-weight: bold;
         }
+
         input[type="text"] {
             width: 100%;
             padding: 10px;
@@ -36,6 +41,7 @@
             border-radius: 4px;
             box-sizing: border-box;
         }
+
         button[type="submit"] {
             background-color: #4caf50;
             color: white;
@@ -45,9 +51,11 @@
             cursor: pointer;
             width: 100%;
         }
+
         button[type="submit"]:hover {
             background-color: #45a049;
         }
+
         button[type="button"] {
             background-color: #ccc;
             color: #333;
@@ -58,28 +66,22 @@
             width: 100%;
             margin-top: 10px;
         }
+
         button[type="button"]:hover {
             background-color: #bbb;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h2>แก้ไขข้อมูลแบรนด์รถ</h2>
         <?php
+        include("./connnect.php");
         // PHP สำหรับการแสดงฟอร์มแก้ไข
-        if(isset($_GET['brandID'])) {
+        if (isset($_GET['brandID'])) {
             // เชื่อมต่อกับฐานข้อมูล
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "carshop";
-            $conn = new mysqli($servername, $username, $password, $dbname);
 
-            // เช็คการเชื่อมต่อ
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
 
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // รับค่าจากฟอร์มแก้ไข
@@ -116,8 +118,6 @@
                 // แสดงฟอร์มแก้ไขข้อมูล
                 echo "<form action='' method='post'>";
                 echo "<input type='hidden' name='brandID' value='$brandID'>";
-                echo "<label for='type-id'>รหัสแบรนด์รถ:</label>";
-                echo "<input type='text' id='type-id' name='type-id' value='$brandID' readonly>";
                 echo "<label for='type-name'>ชื่อแบรนด์รถ:</label>";
                 echo "<input type='text' id='type-name' name='brandName' value='$brandName'>";
                 echo "<button type='submit' name='update_brand'>บันทึก</button>";
@@ -135,4 +135,5 @@
         ?>
     </div>
 </body>
+
 </html>

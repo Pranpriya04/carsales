@@ -5,6 +5,7 @@ include("./connnect.php");
 $sql = $conn->query(" SELECT * FROM car
 LEFT JOIN brand ON brand.brandID = car.brandID
 LEFT JOIN typecar ON typecar.typeCarID = car.typeCarID
+WHERE car.statusID = 2
 ");
 
 $cars = [];
