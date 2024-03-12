@@ -1,15 +1,6 @@
 <?php
 // เชื่อมต่อกับฐานข้อมูล
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "carshop";
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// เช็คการเชื่อมต่อ
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include './connnect.php';
 
 // รับข้อมูลที่ส่งมาจาก form
 $typeId = $_POST['type-id'];

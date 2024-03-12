@@ -20,15 +20,7 @@
         </ul>
     </div>
 </div>
-<div class="sidebar">
-  <a href="type_admin.php">ข้อมูลประเภท</a>
-  <a href="brand_admin.php">ข้อมูลแบรนด์รถ</a>
-  <a href="cars_admin.php">ข้อมูลรถ</a>
-  <a href="sales_admin.php">ข้อมูลการขาย</a>
-  <a href="member_admin.php">ข้อมูลสมาชิก</a><br><br>
-  <a href="#">Logout</a>
-</div>
-
+<?php include './layouts/sidebar.php';?>
 <div class="table_component" role="region" tabindex="0">
 <table><br><br>
     <caption>ข้อมูลสมาชิก</caption>

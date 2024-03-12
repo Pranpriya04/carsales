@@ -19,14 +19,7 @@
             <li><a href="#"><i class="fa-solid fa-house"></i>admin</a></li>        </ul>
     </div>
 </div>
-<div class="sidebar">
-  <a href="type_admin.php">ข้อมูลประเภท</a>
-  <a href="brand_admin.php">ข้อมูลแบรนด์รถ</a>
-  <a href="cars_admin.php">ข้อมูลรถ</a>
-  <a href="sales_admin.php">ข้อมูลการขาย</a>
-  <a href="member_admin.php">ข้อมูลสมาชิก</a><br><br>
-  <a href="#">Logout</a>
-  </div>
+<?php include './layouts/sidebar.php';?>
   <center>
   <button class="add" id="add-car"><a href="incars_admin.php">เพิ่มข้อมูลรถ</a></button></div>
   </center>
