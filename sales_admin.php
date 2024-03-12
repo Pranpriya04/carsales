@@ -20,14 +20,7 @@
         </ul>
     </div>
 </div>
-<div class="sidebar">
-  <a href="type_admin.php">ข้อมูลประเภท</a>
-  <a href="brand_admin.php">ข้อมูลแบรนด์รถ</a>
-  <a href="cars_admin.php">ข้อมูลรถ</a>
-  <a href="sales_admin.php">ข้อมูลการขาย</a>
-  <a href="member_admin.php">ข้อมูลสมาชิก</a><br><br>
-  <a href="#">Logout</a>
-</div>
+<?php include './layouts/sidebar.php';?>
 
 <div class="table_component" role="region" tabindex="0">
 <table><br><br>
@@ -46,41 +39,49 @@
     </thead>
     <tbody>
     <?php
-// เชื่อมต่อกับฐานข้อมูล
+// Connect to the database
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "carshop";
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// เช็คการเชื่อมต่อ
+// Check the connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// คิวรี่ข้อมูลจากตาราง sales
-$sql = "SELECT * FROM sales";
+// Query to fetch sales data with car name, payment method, and user name
+$sql = "SELECT sales.salesID, car.carName, payment.paymentName, users.usersName, sales.salesDay, sales.month, sales.periodPrice 
+        FROM sales
+        JOIN car ON sales.carID = car.carID
+        JOIN payment ON sales.paymentID = payment.paymentID
+        JOIN users ON sales.usersID = users.usersID";
+
 $result = $conn->query($sql);
 
-// ตรวจสอบว่ามีข้อมูลหรือไม่
+// Check if there are any results
 if ($result->num_rows > 0) {
-    // วนลูปแสดงข้อมูลในตาราง
-    while($row = $result->fetch_assoc()) {
+    // Output data of each row
+    while ($row = $result->fetch_assoc()) {
         echo "<tr>";
         echo "<td>" . $row["salesID"] . "</td>";
-        echo "<td>" . $row["carID"] . "</td>";
-        echo "<td>" . $row["paymentID"] . "</td>";
-        echo "<td>" . $row["usersID"] . "</td>";
+        echo "<td>" . $row["carName"] . "</td>";
+        echo "<td>" . $row["paymentName"] . "</td>";
+        echo "<td>" . $row["usersName"] . "</td>";
         echo "<td>" . $row["salesDay"] . "</td>";
         echo "<td>" . $row["month"] . "</td>";
         echo "<td>" . $row["periodPrice"] . "</td>";
         echo "</tr>";
     }
 } else {
-    echo "<tr><td colspan='7'>ไม่พบข้อมูล</td></tr>";
+    echo "<tr><td colspan='7'>No data found</td></tr>";
 }
+
+// Close the connection
 $conn->close();
 ?>
+
 
     </tbody>
 </table>
