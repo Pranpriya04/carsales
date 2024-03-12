@@ -69,18 +69,18 @@ $conn->close();
 </div>
 <div class="edit-info" style="display: none;">
     <div class="info2">
-        <form action="edit_info.php" method="POST" class="edit-form">
+        <form action="actions/ac_user.php?ac=edit" method="POST" class="edit-form" id="edit_info" onsubmit="return edit_info()">
             <div class="form-group">
                 <label for="username">ชื่อผู้ใช้:</label>
-                <input type="text" id="username" name="username" value="<?php echo $_SESSION['usersName']; ?>">
+                <input type="text" id="username" name="usersName" value="<?php echo $_SESSION['usersName']; ?>"><input type="text" id="username" name="usersID" value="<?php echo $_SESSION['usersID']; ?>" hidden>
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" value="<?php echo $row["email"]; ?>">
+                <input type="email" id="email" name="email" value="<?php echo $_SESSION['email']; ?>">
             </div>
             <div class="form-group">
                 <label for="tel">เบอร์โทร:</label>
-                <input type="tel" id="tel" name="tel" value="<?php echo $row["tel"]; ?>">
+                <input type="tel" id="tel" name="tel" value="<?php echo $_SESSION['tel']; ?>">
             </div>
             <button type="submit" class="btn-submit">บันทึก</button>
         </form>
@@ -132,6 +132,10 @@ $conn->close();
     </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+
+</script>
 
 <script>
 
@@ -153,6 +157,43 @@ $conn->close();
             modal.style.display = "none";
         }
     }
+    function edit_info() {
+            let url = $("#edit_info").attr("action")
+            let data = $('#edit_info').serialize();
+            $.ajax({
+                url: url, //the page containing php script
+                type: "post", //request type,
+                // dataType: 'json',
+                data: data,
+                success: function(res) {
+                    let {
+                        status,
+                        message
+                    } = JSON.parse(res)
+
+                    if (status) {
+                        Swal.fire({
+                            title: message,
+                            icon: "success",
+                            showConfirmButton: false,
+                            timer: 1000,
+                        }).then(() => {
+                            window.location.replace("index.php")
+                        })
+                    } else {
+                        Swal.fire({
+                            title: message,
+                            icon: "error",
+                            showConfirmButton: false,
+                            timer: 1000,
+                        })
+
+                    }
+
+                }
+            });
+            return false
+        }
 </script>
 
 
