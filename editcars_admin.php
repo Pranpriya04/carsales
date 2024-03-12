@@ -9,7 +9,47 @@
     <link rel="stylesheet" href="stlye_admin_car.css">
 </head>
 <body>  
-      
+<?php
+// เชื่อมต่อฐานข้อมูล
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "carshop";
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// เช็คการเชื่อมต่อ
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// รับข้อมูลจากแบบฟอร์มแก้ไขข้อมูลรถ
+$carID = $_POST['car-id'];
+$carName = $_POST['car-name'];
+$brand = $_POST['brand'];
+$carType = $_POST['car-type'];
+$manufactureYear = $_POST['manufacture-year'];
+$carColor = $_POST['car-color'];
+$mileage = $_POST['mileage'];
+$price = $_POST['price'];
+$additionalInfo = $_POST['additional-info'];
+$saleStatus = $_POST['sale-status'];
+
+// อัพเดตข้อมูลรถในฐานข้อมูล
+$sql = "UPDATE car 
+        SET carName='$carName', brandID='$brand', typeCarID='$carType', 
+            produceYear='$manufactureYear', color='$carColor', distance='$mileage', 
+            price='$price', moreInfo='$additionalInfo', statusID='$saleStatus' 
+        WHERE carID='$carID'";
+
+if ($conn->query($sql) === TRUE) {
+    echo "Record updated successfully";
+} else {
+    echo "Error updating record: " . $conn->error;
+}
+
+$conn->close();
+?>
+
 <div class="container_car">
     <h4>แก้ไขข้อมูลรถ</h4>
     <form action="submit_car_data.php" method="POST" enctype="multipart/form-data">
