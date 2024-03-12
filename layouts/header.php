@@ -1,6 +1,6 @@
 <div class="header">
     <div class="logo">
-        <a href="home_admin.php">
+        <a href="index.php">
             <h1 id="logo">FDPG CARS</h1>
         </a>
     </div>
