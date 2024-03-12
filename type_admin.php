@@ -131,7 +131,7 @@ function addType() {
         modal.style.display = "block";
     }
     confirmButton.onclick = function() {
-        window.location.href = "index.php";
+        window.location.href = "logout.php";
     }
     cancelButton.onclick = function() {
         modal.style.display = "none";
