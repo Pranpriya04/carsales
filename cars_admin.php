@@ -16,9 +16,7 @@
     </div>
     <div class="menu">
         <ul>
-            <li><a href="#"><i class="fa-solid fa-house"></i>admin</a></li>
-            <li><a href="#"><i class="fa-solid fa-envelope"></i>Contact</a></li>
-        </ul>
+            <li><a href="#"><i class="fa-solid fa-house"></i>admin</a></li>        </ul>
     </div>
 </div>
 <div class="sidebar">
@@ -28,9 +26,11 @@
   <a href="sales_admin.php">ข้อมูลการขาย</a>
   <a href="member_admin.php">ข้อมูลสมาชิก</a><br><br>
   <a href="#">Logout</a>
-</div>
-<button class="add">เพิ่มข้อมูลรถ</button>
-<div class="car-info">
+  </div>
+  <center>
+  <button class="add" id="add-car"><a href="incars_admin.php">เพิ่มข้อมูลรถ</a></button></div>
+  </center>
+  <div class="car-info">
     <div class="car-image">
         <img src="./pictures/4.jpg" alt="Car Image">
     </div>
@@ -46,7 +46,7 @@
         <p><strong>รายละเอียดเพิ่มเติม:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         <p><strong>สถานะขาย:</strong> ยังไม่ขาย</p>
         <div class="buttons">
-            <button class="edit-button">แก้ไข</button>
+            <button class="edit-button"><a href="editcars_admin.php">แก้ไข</a></button>
             <button class="delete-button">ลบ</button>
         </div>
     </div>

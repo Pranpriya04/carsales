@@ -126,6 +126,10 @@ caption{
     transition: 0.3s;
     background-color: #ffc107;
   }
+  .edit-button a{
+    text-decoration: none;
+    color: #ffffff;
+  }
   
   .edit-button:hover {
     opacity: .7;
@@ -154,24 +158,18 @@ caption{
   .butt a{
     display: inline-block;
   }
-.add{
-    margin-left: 350px;
+  .add{
     margin-top: 30px;
-    padding-top: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 1;
+    color: white;
     text-decoration: none;
-    color: #ffffff;
-    font-size: 16px;
-    border-radius: 7px;
-    width: 120px;
-    height: 30px;
-    font-weight: bold;
-    transition: 0.3s;
-    background-color: #4bcd00;
-  }
+    background-color: #39be00;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+}
+.add a{
+    color: white;
+}
   
   .add{
     opacity: .7;
@@ -259,4 +257,61 @@ caption{
 .dd{
     
     display: inline-block;
+}
+.container_car {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+}
+
+.container_car h4 {
+    margin-bottom: 20px;
+}
+
+.container_car form {
+    display: flex;
+    flex-direction: column;
+}
+
+.container_car .input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.container_car label {
+    margin-right: 10px;
+}
+
+.container_car input[type="text"],
+.container_car input[type="number"],
+.container_car select,
+.container_car textarea {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+.button-group2 {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.button-group2 button{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #000000;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.button-group2 button a {
+    color: white;
+    text-decoration: none;
+    width: 180px;
 }

@@ -17,7 +17,6 @@
     <div class="menu">
         <ul>
             <li><a href="#"><i class="fa-solid fa-house"></i>admin</a></li>
-            <li><a href="#"><i class="fa-solid fa-envelope"></i>Contact</a></li>
         </ul>
     </div>
 </div>

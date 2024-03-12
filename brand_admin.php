@@ -17,7 +17,6 @@
     <div class="menu">
         <ul>
             <li><a href="#"><i class="fa-solid fa-house"></i>admin</a></li>
-            <li><a href="#"><i class="fa-solid fa-envelope"></i>Contact</a></li>
         </ul>
     </div>
 </div>
@@ -45,13 +44,22 @@
             <td></td>
             <td></td>
             <td class="butt">
-            <a href="" class="edit-button">แก้ไข</a>
+            <a href="editbrand_admin.php" class="edit-button">แก้ไข</a>
             <a href="" class="delete-button">ลบ</a>
             </td>
         </tr>
     </tbody>
 </table>
-    <a href="#" class="add">เพิ่มรายการ</a>
+<div class="add-type">
+        <h5>เพิ่มข้อมูลแบรนด์รถ</h5>
+        <form action="addtype_admin.php" method="post">
+            <label for="type-id">รหัสแบรนด์รถ:</label>
+            <input type="text" id="type-id" name="type-id">
+            <label for="type-name">ชื่อแบรนด์รถ:</label>
+            <input type="text" id="type-name" name="type-name">
+            <button type="submit">เพิ่มรายการ</button>
+        </form>
+    </div>
 </div>
 
 <!-- Logout confirmation modal -->
