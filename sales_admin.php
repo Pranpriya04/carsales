@@ -39,51 +39,38 @@
     </thead>
     <tbody>
     <?php
-// Connect to the database
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "carshop";
-$conn = new mysqli($servername, $username, $password, $dbname);
+include './connnect.php';
 
-// Check the connection
+// เช็คการเชื่อมต่อ
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
-// Query to fetch sales data with car name, payment method, and user name
-$sql = "SELECT sales.salesID, car.carName, payment.paymentName, users.usersName, sales.salesDay, sales.month, sales.periodPrice 
-        FROM sales
-        JOIN car ON sales.carID = car.carID
-        JOIN payment ON sales.paymentID = payment.paymentID
-        JOIN users ON sales.usersID = users.usersID";
+$sql = "SELECT * FROM sales 
+LEFT JOIN users ON users.usersID = sales.usersID 
+LEFT JOIN payment ON payment.paymentID = sales.paymentID
+LEFT JOIN car ON car.carID = sales.carID";
 
 $result = $conn->query($sql);
 
-// Check if there are any results
+// ตรวจสอบว่ามีข้อมูลหรือไม่
 if ($result->num_rows > 0) {
-    // Output data of each row
-    while ($row = $result->fetch_assoc()) {
+    // วนลูปแสดงข้อมูลในตาราง
+    while($row = $result->fetch_assoc()) {
         echo "<tr>";
         echo "<td>" . $row["salesID"] . "</td>";
         echo "<td>" . $row["carName"] . "</td>";
         echo "<td>" . $row["paymentName"] . "</td>";
-        echo "<td>" . $row["usersName"] . "</td>";
+        echo "<td>" . $row["usersName"] . "</td>"; 
         echo "<td>" . $row["salesDay"] . "</td>";
         echo "<td>" . $row["month"] . "</td>";
         echo "<td>" . $row["periodPrice"] . "</td>";
         echo "</tr>";
     }
 } else {
-    echo "<tr><td colspan='7'>No data found</td></tr>";
-}
-
-// Close the connection
-$conn->close();
+    echo "<tr><td colspan='7'>ไม่พบข้อมูล</td></tr>";
+};
 ?>
-
-
-    </tbody>
+</tbody>
 </table>
 </div>
 <!-- Logout confirmation modal -->

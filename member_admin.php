@@ -59,7 +59,7 @@ if ($result->num_rows > 0) {
         echo "<tr>";
         echo "<td>" . $row["usersID"] . "</td>";
         echo "<td>" . $row["usersName"] . "</td>";
-        echo "<td>" . $row["email"] . "</td>";
+        echo "<td style='word-wrap: break-word;'>" . $row["email"] . "</td>";
         echo "<td>" . $row["tel"] . "</td>";
         echo "<td>" . $row["credit"] . "</td>";
         echo "<td>" . $row["adress"] . "</td>";
