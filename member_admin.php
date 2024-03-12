@@ -43,14 +43,42 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
+    <?php
+// เชื่อมต่อฐานข้อมูล
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "carshop";
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// เช็คการเชื่อมต่อ
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// คิวรี่ข้อมูลจากตาราง users
+$sql = "SELECT * FROM users";
+$result = $conn->query($sql);
+
+// ตรวจสอบว่ามีข้อมูลหรือไม่
+if ($result->num_rows > 0) {
+    // วนลูปแสดงข้อมูลในตาราง
+    while($row = $result->fetch_assoc()) {
+        echo "<tr>";
+        echo "<td>" . $row["usersID"] . "</td>";
+        echo "<td>" . $row["usersName"] . "</td>";
+        echo "<td>" . $row["email"] . "</td>";
+        echo "<td>" . $row["tel"] . "</td>";
+        echo "<td>" . $row["credit"] . "</td>";
+        echo "<td>" . $row["adress"] . "</td>";
+        echo "</tr>";
+    }
+} else {
+    echo "<tr><td colspan='6'>ไม่พบข้อมูล</td></tr>";
+}
+$conn->close();
+?>
+
     </tbody>
 </table>
 </div>
