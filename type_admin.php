@@ -52,7 +52,7 @@
                         echo "<td>" . $row["typeCarID"] . "</td>";
                         echo "<td>" . $row["typeCarName"] . "</td>";
                         echo "<td class='butt'>";
-                        echo "<a href='index.php?p=edittype_admin?id=" . $row["typeCarID"] . "' class='edit-button'>แก้ไข</a>";
+                        echo "<a href='index.php?p=edittype_admin&id=" . $row["typeCarID"] . "' class='edit-button'>แก้ไข</a>";
                         echo "<a href='delete_type.php?typeCarID=" . $row["typeCarID"] . "' class='delete-button'>ลบ</a>";
                         echo "</td>";
                         echo "</tr>";

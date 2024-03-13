@@ -74,7 +74,10 @@
 </head>
 
 <body>
-    <div class="container">
+    <?php
+    include "./layouts/sidebar.php";
+    include "./layouts/header_admin.php"; ?>
+    <div class="container" style=" margin-top: 14rem;">
         <h2>แก้ไขข้อมูลแบรนด์รถ</h2>
         <?php
         include("./connnect.php");
@@ -94,7 +97,7 @@
                 // ตรวจสอบว่าอัปเดตข้อมูลสำเร็จหรือไม่
                 if ($conn->query($sql) === TRUE) {
                     // อัปเดตสำเร็จ ส่งกลับไปยังหน้า brand_admin.php
-                    header("Location: brand_admin.php");
+                    echo "<script>window.location.replace('index.php?p=brand_admin')</script>";
                     exit();
                 } else {
                     echo "เกิดข้อผิดพลาดในการอัปเดตข้อมูล: " . $conn->error;
