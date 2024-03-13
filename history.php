@@ -55,7 +55,7 @@ while ($history = $sql->fetch_object()) {
             <tbody>
                 <?php foreach ($historys as $key => $history) { ?>
                     <tr>
-                        <td><?php $key + 1; ?></td>
+                        <td><?php echo $key + 1; ?></td>
                         <td><?php echo $history->carName; ?></td>
                         <td><?php echo $history->paymentName; ?></td>
                         <td><?php echo $history->salesDay; ?></td>
