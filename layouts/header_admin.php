@@ -1,4 +1,4 @@
-<div class="header">
+<div class="header" style=" position: sticky;top:0; ">
     <div class="logo">
         <a href="index.php">
             <h1 id="logo">FDPG CARS</h1>

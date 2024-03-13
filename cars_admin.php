@@ -64,10 +64,11 @@
             echo "<p><strong>รายละเอียดเพิ่มเติม:</strong> " . $row["moreInfo"] . "</p>";
             echo "<p><strong>สถานะขาย:</strong> " . $row["statusName"] . "</p>";
             echo "<div class='buttons'>";
-            echo "<button class='edit-button'><a href='editcars_admin.php";
+            echo "<a class='edit-button' href='editcars_admin.php";
             echo "?ac=edit&id=";
-            echo $row['carID'] . "'>แก้ไข</a></button>";
-            echo "<button class='delete-button'>ลบ</button>";
+            echo $row['carID'] . "'>แก้ไข</a>";
+            echo "<a class='delete-button' href='actions/ac_car.php?ac=del&id=";
+            echo $row['carID'] . "'>ลบ</a>";
             echo "</div>";
             echo "</div>";
             echo "</div>";

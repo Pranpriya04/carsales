@@ -37,6 +37,7 @@ while ($typeCar = $typeCarSql->fetch_object()) {
             <div class="input-group">
                 <label for="car-name">ชื่อรถ:</label>
                 <input type="text" id="car-name" value="<?php echo $car->carName; ?>" name="carName">
+                <input type="text" id="car-name" value="<?php echo $car->carID; ?>" name="carID" hidden>
             </div>
 
             <div class="input-group">

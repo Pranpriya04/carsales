@@ -19,7 +19,9 @@ session_start();
 
     <?php
     if (isset($_REQUEST['p'])) {
-        include "./layouts/header.php";
+        if (!$_SESSION['status'] == 1) {
+            include "./layouts/header.php";
+        }
     ?>
         <?php
         include($_REQUEST['p'] . ".php");
